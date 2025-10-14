@@ -188,18 +188,10 @@
 /turf/simulated/floor/urban/tiles,
 /area/warfare/homebase/red/stoneroom)
 "aB" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/structure/announcementspeaker/blue{
-	pixel_y = 0;
-	dir = 8
-	},
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/room)
+/obj/effect/floor_decal/newcorner/grey,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "aC" = (
 /obj/item/storage/fancy/cigarettes/jerichos,
 /obj/item/flame/lighter/random,
@@ -779,7 +771,6 @@
 /turf/simulated/floor/concrete/random,
 /area/warfare/homebase/blue/hallway)
 "cw" = (
-/obj/structure/closet/crate,
 /obj/structure/trench_wall{
 	dir = 4;
 	pixel_x = -32;
@@ -789,8 +780,7 @@
 	pixel_x = 0;
 	dir = 4
 	},
-/obj/random/canned_food/red,
-/obj/random/canned_food/red,
+/obj/structure/table/rack/shelf/red,
 /turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/room)
 "cx" = (
@@ -915,20 +905,17 @@
 /turf/simulated/floor/urban/cinder,
 /area/warfare/homebase/blue/room)
 "cO" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_box/rifle,
-/obj/item/ammo_box/rifle,
-/obj/machinery/light/small/bunker{
-	pixel_x = 0;
-	pixel_y = 32
+/obj/structure/sign/warning/biohazard,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
 	},
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/stoneroom)
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "cP" = (
 /obj/structure/closet/crate,
 /obj/random/canned_food/blue,
 /obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
+/obj/structure/table/rack/holorack,
 /turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/room)
 "cR" = (
@@ -954,28 +941,21 @@
 /turf/simulated/floor/concrete/random,
 /area/warfare/battlefield/trench_section/underground/stormsystem/hall)
 "cV" = (
-/obj/structure/closet/crate,
 /obj/structure/trench_wall{
 	dir = 4;
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/structure/announcementspeaker/blue{
-	pixel_y = 0;
-	dir = 4
-	},
-/obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
+/obj/structure/table/rack/holorack,
 /turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/room)
 "cY" = (
-/obj/structure/closet/crate,
-/obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/stoneroom)
+/obj/effect/floor_decal/newcorner/grey/diagonal,
+/obj/effect/floor_decal/newcorner/grey/corner{
+	dir = 4
+	},
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "cZ" = (
 /obj/structure/table/rack/nosmooth/metal,
 /obj/item/storage/firstaid/surgery,
@@ -1090,13 +1070,11 @@
 	},
 /area/warfare/battlefield/capture_point/red/one)
 "ds" = (
-/obj/structure/closet/crate,
 /obj/structure/announcementspeaker/red{
 	pixel_x = 0;
 	dir = 4
 	},
-/obj/random/canned_food/red,
-/obj/random/canned_food/red,
+/obj/structure/table/rack/shelf/red,
 /turf/simulated/floor/concrete/random,
 /area/warfare/battlefield/trench_section/room)
 "dt" = (
@@ -1110,15 +1088,10 @@
 	},
 /area/warfare/battlefield/trench_section/underground/indoors)
 "dv" = (
-/obj/structure/closet/crate,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
+/obj/structure/table/rack/holorack,
 /obj/machinery/light/caged{
-	pixel_y = -1;
 	dir = 1;
-	pixel_x = 0
+	pixel_y = -1
 	},
 /turf/simulated/floor/concrete/random,
 /area/warfare/battlefield/trench_section/room)
@@ -1192,11 +1165,17 @@
 /turf/simulated/wall/perspecticrete,
 /area/warfare/battlefield/trench_section/hallway)
 "dF" = (
-/obj/structure/closet/crate,
-/obj/random/canned_food/red,
-/obj/random/canned_food/red,
-/obj/random/canned_food/red,
-/turf/simulated/floor/concrete/random,
+/obj/machinery/light/caged{
+	pixel_y = 30;
+	pixel_x = 0
+	},
+/obj/structure/trench_wall{
+	dir = 8;
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/table/rack/shelf/red,
+/turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/room)
 "dG" = (
 /obj/hammereditor/nodraw,
@@ -1250,15 +1229,11 @@
 /turf/simulated/floor/urban/tiles/blue,
 /area/warfare/homebase/blue/stoneroom)
 "dM" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/turf/simulated/floor/wood,
-/area/warfare/battlefield/trench_section/room)
+/obj/effect/floor_decal/newcorner/grey/corner{
+	dir = 4
+	},
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "dN" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -1270,14 +1245,12 @@
 /turf/simulated/floor/urban/concrete,
 /area/warfare/homebase/blue/trainyard)
 "dO" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
 /obj/structure/trench_wall{
 	dir = 8;
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/structure/table/rack/holorack,
 /turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/room)
 "dP" = (
@@ -1595,11 +1568,11 @@
 /turf/simulated/open,
 /area/warfare/homebase/blue/hallway)
 "eL" = (
-/obj/structure/poster/nixon,
-/turf/simulated/wall/perspecticrete{
-	integrity = 99999
-	},
-/area/warfare/battlefield/trench_section/underground/indoors)
+/obj/effect/floor_decal/newcorner/grey/corner,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "eN" = (
 /obj/machinery/door/airlock/multi_tile/metal/maintenance/blue,
 /turf/simulated/floor/concrete/random,
@@ -1640,17 +1613,12 @@
 /turf/simulated/floor/concrete/random,
 /area/warfare/homebase/blue/largeroom)
 "eX" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
 /obj/structure/trench_wall{
 	dir = 8;
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/structure/table/rack/holorack,
 /obj/machinery/light/caged{
 	pixel_y = 30;
 	pixel_x = 0
@@ -2011,29 +1979,20 @@
 /turf/simulated/open,
 /area/warfare/battlefield/capture_point/blue/two)
 "gf" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/allrounder,
-/obj/item/ammo_magazine/a762/allrounder,
-/obj/item/ammo_magazine/a762/allrounder,
-/obj/item/ammo_magazine/a762/allrounder,
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/stoneroom)
+/obj/effect/floor_decal/newcorner/grey/corner,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "gg" = (
 /obj/hammereditor/nodraw,
 /turf/simulated/wall/perspecticrete,
 /area/warfare/homebase/blue/room)
 "gh" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_box/rifle,
-/obj/item/ammo_box/rifle,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
 /turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/stoneroom)
+/area/warfare/homebase/red/hallway)
 "gi" = (
 /turf/simulated/floor/dirty/indestructable,
 /area/warfare/battlefield/capture_point/blue/two)
@@ -2778,6 +2737,13 @@
 /obj/effect/lighting_dummy/daylight,
 /turf/simulated/floor/stones,
 /area/warfare/homebase/blue/trainyard)
+"ju" = (
+/obj/random/canned_food/red,
+/obj/random/canned_food/red,
+/obj/structure/table/rack/shelf/red,
+/obj/random/canned_food/red,
+/turf/simulated/floor/wood,
+/area/warfare/battlefield/trench_section/room)
 "jv" = (
 /obj/machinery/light/small/red{
 	dir = 1;
@@ -2816,14 +2782,9 @@
 /turf/simulated/floor/dirty/indestructable,
 /area/warfare/battlefield/capture_point/blue/one)
 "jD" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/machinery/light/small/bunker{
-	dir = 1
-	},
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/room)
+/obj/machinery/door/airlock/multi_tile/metal/maintenance/red,
+/turf/simulated/floor/urban/tiles,
+/area/warfare/homebase/red/hallway)
 "jO" = (
 /obj/structure/curtain/tarp{
 	dir = 8
@@ -2834,10 +2795,7 @@
 /turf/simulated/wall/perspecticrete,
 /area/warfare/homebase/red/hallway)
 "jT" = (
-/obj/structure/closet/crate,
-/obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
+/obj/structure/table/rack/holorack,
 /turf/simulated/floor/concrete/random,
 /area/warfare/battlefield/trench_section/room)
 "jW" = (
@@ -2879,13 +2837,12 @@
 	},
 /area/warfare/battlefield/trench_section/room)
 "ke" = (
-/obj/structure/rubble{
-	density = 0;
-	pixel_x = 4;
-	pixel_y = -9
-	},
+/obj/structure/closet/crate,
+/obj/random/canned_food/blue,
+/obj/random/canned_food/blue,
+/obj/structure/table/rack/holorack,
 /turf/simulated/floor/concrete/random,
-/area/warfare/homebase/red/hallway)
+/area/warfare/battlefield/trench_section/room)
 "kl" = (
 /turf/simulated/floor/urban/cinder,
 /area/warfare/homebase/red/hallway)
@@ -2955,6 +2912,9 @@
 /obj/item/wrench{
 	pixel_x = -15;
 	pixel_y = 5
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/urban/cinder,
 /area/warfare/homebase/blue/room)
@@ -3146,11 +3106,6 @@
 /turf/simulated/floor/urban/tiles/blue,
 /area/warfare/homebase/blue/room)
 "mc" = (
-/obj/structure/closet/crate,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
 /obj/machinery/light/small/bunker{
 	pixel_x = 0;
 	pixel_y = 32
@@ -3431,10 +3386,9 @@
 	},
 /area/space)
 "nD" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/turf/simulated/floor/concrete/random,
-/area/warfare/homebase/blue/largeroom)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/largeroom)
 "nJ" = (
 /obj/structure/trench_wall/innercorners{
 	dir = 8
@@ -3735,10 +3689,9 @@
 /turf/unsimulated/wall/submarine/doors,
 /area/train/red)
 "pC" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/turf/simulated/floor/concrete/random,
-/area/warfare/homebase/red/largeroom)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/urban/tiles,
+/area/warfare/homebase/red/hallway)
 "pF" = (
 /turf/simulated/wall/perspecticrete,
 /area/space)
@@ -3843,6 +3796,17 @@
 /obj/effect/floor_decal/urban/trim1,
 /turf/simulated/floor/urban/tiles,
 /area/warfare/homebase/red/room)
+"qm" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "qq" = (
 /obj/item/storage/firstaid/surgery,
 /obj/structure/table/rack/nosmooth/metal,
@@ -4404,6 +4368,15 @@
 	},
 /turf/simulated/floor/concrete/random,
 /area/warfare/battlefield/trench_section/hallway)
+"sL" = (
+/obj/machinery/light/caged{
+	pixel_y = -1;
+	dir = 1;
+	pixel_x = 0
+	},
+/obj/structure/table/rack/shelf/red,
+/turf/simulated/floor/concrete/random,
+/area/warfare/battlefield/trench_section/room)
 "sN" = (
 /obj/hammereditor/nodraw/deco/shadowpaint,
 /turf/simulated/floor/stones,
@@ -4511,10 +4484,10 @@
 /turf/simulated/floor/stones,
 /area/warfare/homebase/blue/trainyard)
 "tT" = (
-/obj/structure/closet/crate,
 /obj/random/canned_food/red,
 /obj/random/canned_food/red,
 /obj/random/canned_food/red,
+/obj/structure/table/rack/shelf/red,
 /turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/room)
 "tW" = (
@@ -4800,6 +4773,9 @@
 	icon_state = "smes";
 	layer = 222
 	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 4
+	},
 /turf/simulated/floor/concrete/random,
 /area/warfare/homebase/red/hallway)
 "vu" = (
@@ -4946,17 +4922,6 @@
 /obj/effect/lighting_dummy/daylight,
 /turf/simulated/floor/stones,
 /area/warfare/homebase/red/trainyard)
-"wa" = (
-/obj/structure/rubble{
-	density = 0;
-	pixel_x = 2;
-	pixel_y = 10
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/concrete/random,
-/area/warfare/homebase/red/hallway)
 "wc" = (
 /obj/effect/floor_decal/trench{
 	dir = 6
@@ -5089,12 +5054,8 @@
 	},
 /area/warfare/homebase/blue/room)
 "xd" = (
-/obj/structure/rubble{
-	density = 0;
-	pixel_x = -12;
-	pixel_y = -7
-	},
-/turf/simulated/floor/concrete/random,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/urban/cinder,
 /area/warfare/homebase/red/hallway)
 "xe" = (
 /obj/effect/lighting_dummy/daylight,
@@ -5324,6 +5285,10 @@
 	color = "#ffffff"
 	},
 /area/warfare/battlefield/capture_point/blue/one)
+"yx" = (
+/obj/structure/table/rack/shelf/red,
+/turf/simulated/floor/concrete/random,
+/area/warfare/battlefield/trench_section/room)
 "yA" = (
 /obj/structure/trench_wall{
 	dir = 9;
@@ -5498,6 +5463,12 @@
 	color = "#ffffff"
 	},
 /area/warfare/battlefield/capture_point/blue/two)
+"zG" = (
+/obj/machinery/light/small/bunker{
+	dir = 8
+	},
+/turf/simulated/floor/concrete/random,
+/area/warfare/homebase/blue/hallway)
 "zI" = (
 /obj/structure/table/rack/holorack,
 /obj/structure/closet/crate{
@@ -6023,6 +5994,9 @@
 /area/warfare/homebase/red/room)
 "CC" = (
 /obj/structure/closet/crate/trashcart,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
 /turf/simulated/floor/concrete/random,
 /area/warfare/homebase/red/hallway)
 "CG" = (
@@ -6491,12 +6465,9 @@
 /turf/simulated/floor/concrete/random,
 /area/warfare/battlefield/trench_section/underground/stormsystem/hall)
 "FT" = (
-/obj/structure/rubble{
-	density = 0;
-	pixel_x = 6;
-	pixel_y = 17
-	},
-/turf/simulated/floor/concrete/random,
+/obj/machinery/door/airlock/multi_tile/metal/maintenance/red,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/urban/tiles,
 /area/warfare/homebase/red/hallway)
 "FW" = (
 /obj/machinery/door/airlock/multi_tile/metal/maintenance/blue,
@@ -6714,10 +6685,14 @@
 /turf/simulated/floor/concrete/random,
 /area/warfare/homebase/blue/largeroom)
 "HO" = (
-/obj/effect/darkout_teleporter/redcoats,
-/obj/effect/lighting_dummy/daylight,
-/turf/simulated/floor/stones,
-/area/warfare/homebase/blue/trainyard)
+/obj/structure/trench_wall{
+	dir = 8;
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/table/rack/shelf/red,
+/turf/simulated/floor/wood,
+/area/warfare/battlefield/trench_section/room)
 "HQ" = (
 /obj/effect/floor_decal/trench{
 	dir = 1
@@ -7189,6 +7164,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/warfare/homebase/red/caproom)
+"LI" = (
+/obj/machinery/light/caged{
+	pixel_y = 30;
+	pixel_x = 0
+	},
+/obj/structure/trench_wall{
+	dir = 4;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/structure/table/rack/shelf/red,
+/turf/simulated/floor/wood,
+/area/warfare/battlefield/trench_section/room)
 "LK" = (
 /obj/structure/trench_wall{
 	dir = 1
@@ -7233,6 +7221,13 @@
 	color = "#ffffff"
 	},
 /area/warfare/battlefield/capture_point/red/two)
+"Mf" = (
+/obj/random/canned_food/red,
+/obj/random/canned_food/red,
+/obj/random/canned_food/red,
+/obj/structure/table/rack/shelf/red,
+/turf/simulated/floor/concrete/random,
+/area/warfare/battlefield/trench_section/room)
 "Mg" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -7624,6 +7619,13 @@
 	health = 999999
 	},
 /area/warfare/battlefield/capture_point/blue/two)
+"OA" = (
+/obj/random/canned_food/red,
+/obj/random/canned_food/red,
+/obj/structure/table/rack/shelf/red,
+/obj/random/canned_food/red,
+/turf/simulated/floor/concrete/random,
+/area/warfare/battlefield/trench_section/room)
 "OC" = (
 /obj/effect/lighting_dummy/daylight,
 /obj/structure/train_deco/tracks01,
@@ -7882,11 +7884,8 @@
 	},
 /area/warfare/battlefield/capture_point/red/one)
 "Qt" = (
-/obj/structure/closet/crate,
-/obj/random/canned_food/red,
-/obj/random/canned_food/red,
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/room)
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red)
 "Qu" = (
 /obj/item/device/compass,
 /obj/item/device/compass,
@@ -8330,6 +8329,13 @@
 	color = "#ffffff"
 	},
 /area/warfare/battlefield/capture_point/blue/one)
+"SV" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "SX" = (
 /mob/living/simple_animal/hostile/retaliate/rat,
 /turf/simulated/floor/trenches/underground{
@@ -8338,11 +8344,6 @@
 	},
 /area/warfare/battlefield/capture_point/red/two)
 "SY" = (
-/obj/structure/closet/crate,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
 /obj/machinery/light/small/bunker{
 	dir = 1
 	},
@@ -8372,18 +8373,14 @@
 /turf/simulated/floor/urban/concrete,
 /area/warfare/homebase/red/trainyard)
 "Te" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/m14/battlerifle_mag,
-/obj/item/ammo_magazine/a762/allrounder,
-/obj/item/ammo_magazine/a762/allrounder,
-/obj/item/ammo_magazine/a762/allrounder,
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/stoneroom)
+/obj/effect/floor_decal/newcorner/grey/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/newcorner/grey/corner{
+	dir = 1
+	},
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "Th" = (
 /obj/structure/announcementspeaker/blue{
 	pixel_x = 0;
@@ -8401,7 +8398,7 @@
 "Tq" = (
 /obj/machinery/optable{
 	dir = 1;
-	pixel_x = -4
+	pixel_x = -7
 	},
 /obj/machinery/light,
 /turf/simulated/floor/urban/tiles,
@@ -8606,11 +8603,10 @@
 /area/warfare/battlefield/capture_point/red/one)
 "UC" = (
 /obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
+/obj/random/canned_food/blue,
+/obj/random/canned_food/blue,
+/obj/random/canned_food/blue,
+/obj/structure/table/rack/holorack,
 /turf/simulated/floor/concrete/random,
 /area/warfare/battlefield/trench_section/room)
 "UD" = (
@@ -8996,16 +8992,12 @@
 	},
 /area/space)
 "Xb" = (
-/obj/structure/closet/crate,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
-/obj/item/grenade/frag/warfare,
 /obj/structure/trench_wall{
 	dir = 4;
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/table/rack/holorack,
 /obj/machinery/light/caged{
 	pixel_y = 30;
 	pixel_x = 0
@@ -9046,11 +9038,9 @@
 /turf/simulated/floor/concrete/random,
 /area/warfare/homebase/red/hallway)
 "Xx" = (
-/obj/structure/closet/crate,
-/obj/random/canned_food/blue,
-/obj/random/canned_food/blue,
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/stoneroom)
+/obj/effect/floor_decal/newcorner/grey/diagonal,
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "Xy" = (
 /obj/item/ammo_box/shotgun,
 /obj/structure/table/rack/nosmooth/wood/alt{
@@ -9133,16 +9123,9 @@
 /turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/underground/indoors)
 "Yd" = (
-/obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/machinery/light/caged{
-	pixel_y = -1;
-	dir = 1;
-	pixel_x = 0
-	},
-/turf/simulated/floor/concrete/random,
-/area/warfare/battlefield/trench_section/room)
+/obj/effect/floor_decal/newcorner/grey/quarter,
+/turf/simulated/floor/urban/cinder,
+/area/warfare/homebase/red/hallway)
 "Ye" = (
 /obj/structure/closet/crate/wooden{
 	pixel_x = -3;
@@ -9157,11 +9140,10 @@
 /area/warfare/homebase/blue/trainyard)
 "Yh" = (
 /obj/structure/closet/crate,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
-/obj/item/ammo_magazine/c45rifle/akarabiner,
+/obj/random/canned_food/blue,
+/obj/random/canned_food/blue,
+/obj/random/canned_food/blue,
+/obj/structure/table/rack/holorack,
 /turf/simulated/floor/wood,
 /area/warfare/battlefield/trench_section/room)
 "Yl" = (
@@ -14139,7 +14121,7 @@ CT
 dl
 do
 ds
-dv
+sL
 dl
 Qh
 NP
@@ -14148,7 +14130,7 @@ VO
 om
 FC
 zz
-Xb
+LI
 cw
 Ml
 Wf
@@ -14283,8 +14265,8 @@ bd
 bk
 ZP
 NQ
-jT
-UC
+NQ
+ke
 dl
 cn
 Da
@@ -14294,7 +14276,7 @@ xj
 qk
 zz
 cP
-dM
+TW
 TW
 kZ
 IZ
@@ -14438,8 +14420,8 @@ dh
 pL
 dT
 NQ
-dF
-UC
+NQ
+Mf
 dl
 Qh
 Da
@@ -14449,7 +14431,7 @@ xj
 OD
 zz
 tT
-dM
+TW
 TW
 Cr
 Sy
@@ -14583,7 +14565,7 @@ bd
 qb
 NQ
 NQ
-UC
+NQ
 UC
 dl
 cn
@@ -14594,7 +14576,7 @@ VO
 Fg
 aT
 Yh
-Yh
+TW
 TW
 TW
 cx
@@ -14738,8 +14720,8 @@ dh
 CI
 NQ
 NQ
-UC
-UC
+NQ
+OA
 dl
 Qh
 NP
@@ -14748,8 +14730,8 @@ VO
 VO
 Fg
 aT
-Yh
-Yh
+ju
+TW
 TW
 TW
 wJ
@@ -14883,8 +14865,8 @@ bd
 Ig
 dl
 do
-aB
-Yd
+jT
+dv
 dl
 cn
 NP
@@ -15038,8 +15020,8 @@ dh
 lB
 dl
 do
-UC
-Yd
+yx
+sL
 dl
 Qh
 NP
@@ -15048,8 +15030,8 @@ VO
 VO
 Tv
 aT
-eX
-dO
+dF
+HO
 dC
 RL
 NG
@@ -19548,7 +19530,7 @@ jO
 Fq
 GX
 zz
-aT
+dK
 TW
 TW
 TW
@@ -22862,7 +22844,7 @@ aa
 aa
 aa
 aa
-eL
+nQ
 vn
 VO
 qj
@@ -25278,7 +25260,7 @@ jP
 jP
 jP
 jP
-VP
+ab
 VP
 VP
 VP
@@ -25572,13 +25554,13 @@ VP
 VP
 VP
 jP
-wR
-wR
-Qb
-wR
-wR
-BC
-VP
+Yd
+gf
+eL
+xd
+cY
+dM
+Qt
 VP
 VP
 VP
@@ -25872,13 +25854,13 @@ VP
 VP
 VP
 jP
-wR
-wR
-Wq
-wR
-wR
-BC
-VP
+kl
+Xx
+aB
+Xx
+Te
+kl
+Qt
 VP
 VP
 VP
@@ -26172,9 +26154,9 @@ jP
 jP
 jP
 jP
-wR
-wR
-jP
+qm
+cO
+SV
 jP
 jP
 jP
@@ -26468,14 +26450,14 @@ VP
 VP
 BC
 wR
-Qb
-wR
 wR
 Qb
 wR
+FT
+pC
 wR
-Qb
 wR
+jD
 wR
 Qb
 wR
@@ -26768,13 +26750,13 @@ VP
 VP
 BC
 wR
-Wq
-wR
 wR
 Wq
 wR
 wR
 wR
+pC
+pC
 wR
 wR
 Wq
@@ -27372,9 +27354,9 @@ Br
 Br
 bg
 Km
-dn
-dn
-dn
+bq
+nD
+nD
 Km
 bg
 Br
@@ -28984,7 +28966,7 @@ ge
 ge
 bi
 mc
-Xx
+be
 MW
 bi
 SR
@@ -29151,7 +29133,7 @@ gj
 vW
 dl
 nw
-Qt
+NQ
 SY
 dl
 vU
@@ -29240,7 +29222,7 @@ Ti
 Ti
 Ti
 OC
-HO
+Ti
 SZ
 Cu
 pe
@@ -29283,8 +29265,8 @@ gd
 ge
 ge
 bi
-gf
-cY
+be
+be
 be
 tX
 oJ
@@ -29451,8 +29433,8 @@ Cy
 Cy
 dT
 NQ
-dF
-UC
+NQ
+NQ
 dl
 gG
 gG
@@ -29540,7 +29522,7 @@ Ti
 Ti
 Ti
 OC
-HO
+Ti
 SZ
 Cu
 pe
@@ -29583,8 +29565,8 @@ gd
 ge
 ge
 bi
-gf
-Te
+be
+be
 be
 be
 oJ
@@ -29751,8 +29733,8 @@ Cy
 Cy
 NQ
 NQ
-UC
-UC
+NQ
+NQ
 dl
 gG
 gG
@@ -29840,7 +29822,7 @@ Ti
 Ti
 Ti
 OC
-HO
+Ti
 SZ
 Cu
 pe
@@ -29883,8 +29865,8 @@ gd
 ge
 ge
 bi
-cO
-gh
+mc
+be
 Sf
 bi
 SR
@@ -30051,8 +30033,8 @@ gj
 vW
 dl
 nw
-UC
-jD
+NQ
+SY
 dl
 vU
 gG
@@ -30140,7 +30122,7 @@ Ti
 Ti
 Ti
 OC
-HO
+Ti
 SZ
 Cu
 pe
@@ -31650,7 +31632,7 @@ lu
 aP
 aP
 aP
-aP
+zG
 aP
 eN
 aP
@@ -33784,7 +33766,7 @@ ge
 qR
 bi
 mc
-Xx
+be
 Sf
 bi
 SR
@@ -33951,7 +33933,7 @@ gj
 vW
 dl
 nw
-Qt
+NQ
 SY
 dl
 vU
@@ -34083,8 +34065,8 @@ gd
 ge
 ge
 bi
-gf
-cY
+be
+be
 be
 tX
 oJ
@@ -34251,8 +34233,8 @@ Cy
 Cy
 dT
 NQ
-dF
-UC
+NQ
+NQ
 dl
 gG
 gG
@@ -34383,8 +34365,8 @@ gd
 ge
 ge
 bi
-gf
-Te
+be
+be
 be
 be
 oJ
@@ -34551,8 +34533,8 @@ Cy
 Cy
 NQ
 NQ
-UC
-UC
+NQ
+NQ
 dl
 gG
 gG
@@ -34662,14 +34644,14 @@ rM
 rM
 Oa
 Wi
-nD
-nD
+Wi
+Wi
 au
 ZY
 Xy
 aw
-nD
-nD
+Wi
+Wi
 Cj
 fR
 fR
@@ -34683,8 +34665,8 @@ gd
 ge
 qR
 bi
-cO
-gh
+mc
+be
 MW
 bi
 SR
@@ -34851,8 +34833,8 @@ gj
 vW
 dl
 nw
-UC
-jD
+NQ
+SY
 dl
 vU
 gG
@@ -34872,8 +34854,8 @@ IX
 Ql
 xK
 DJ
-pC
-pC
+dn
+dn
 dn
 Ds
 Fr
@@ -37873,8 +37855,8 @@ dn
 dn
 tN
 dn
-pC
-pC
+dn
+dn
 dn
 yP
 bY
@@ -38766,8 +38748,8 @@ he
 Cb
 Cb
 xf
+gh
 tk
-FT
 zM
 tk
 Op
@@ -38775,7 +38757,7 @@ Op
 tk
 wj
 tk
-xd
+tk
 Yy
 KU
 KU
@@ -39067,7 +39049,7 @@ Cb
 Cb
 Nb
 CC
-wa
+OX
 zM
 tk
 tk
@@ -39075,7 +39057,7 @@ tk
 tk
 wj
 OX
-ke
+tk
 wR
 KU
 KU
