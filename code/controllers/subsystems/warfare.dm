@@ -1,5 +1,7 @@
 #define KOTH_VICTORY_POINTS 500
 
+#define PAYLOAD_SPEED_MODIFIER 1
+
 /datum/team
 	var/list/team = list()  // members of the team
 	var/list/team_clients = list()
@@ -77,7 +79,10 @@ SUBSYSTEM_DEF(warfare)
 	if(battle_time)  // so if it starts early, it doesnt @everyone again
 		return
 	battle_time = TRUE
-	to_world("<big>I AM READY TO DIE NOW!</big>")
+	if(!length(GLOB.payloads))
+		to_world("<big>I AM READY TO DIE NOW!</big>")
+	else
+		to_world("<big>I AM READY TO PUSH THE CART NOW!</big>")
 	sound_to(world, 'sound/effects/ready_to_die.ogg')//Sound notifying them.
 	for(var/turf/simulated/floor/dirty/fake/F in world)//Make all the fake dirt into real dirt.
 		F.ChangeTurf(/turf/simulated/floor/dirty)
@@ -166,3 +171,10 @@ SUBSYSTEM_DEF(warfare)
 
 		else if(red && C.warfare_faction == RED_TEAM)
 			C.unlock_achievement(new/datum/achievement/warfare_victory())
+
+/client/proc/cargo_password()
+	set category = "Debug"
+	set name = "Check Cargo password"
+	set desc = "Prints the cargo password."
+
+	to_chat(src, GLOB.cargo_password)

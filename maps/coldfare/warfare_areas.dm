@@ -79,12 +79,14 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 		L.overlay_fullscreen("fog", /obj/screen/fullscreen/fog)
 		L.overlay_fullscreen("ash", /obj/screen/fullscreen/storm)
 		L.overlay_fullscreen("ashparticle", /obj/screen/fullscreen/ashparticles)
+
 /area/warfare/battlefield/Exited(mob/living/L, area/A)
 	. = ..()
 	if(istype(L) && !istype(A, /area/warfare/battlefield))
 		L.clear_fullscreen("fog")
 		L.clear_fullscreen("ash")
 		L.clear_fullscreen("ashparticle")
+
 /area/warfare/battlefield/capture_point
 	name = "\improper Capture Point"
 	icon_state = "storage"
@@ -101,6 +103,7 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 
 /area/warfare/battlefield/capture_point/Entered(atom/A)
 	. = ..()
+	if(length(GLOB.payloads)) return
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
 		if(H.warfare_faction != captured)
@@ -109,6 +112,7 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 			to_chat(H, "Now defending [src]!")
 
 /area/warfare/battlefield/capture_point/Process()
+	if(length(GLOB.payloads)) return . = ..()
 	for(var/mob/living/carbon/human/H in src)
 		if(!istype(H))
 			continue
@@ -167,6 +171,7 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 
 /area/warfare/battlefield/capture_point/Exit(mob/living/L)
 	. = ..()
+	if(length(GLOB.payloads)) return
 	if(ishuman(L))
 		if(L in blues)
 			blues -= L
@@ -191,8 +196,17 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 		if(!H.stat == CONSCIOUS)
 			return TRUE
 		if(H.warfare_faction == BLUE_TEAM && (GLOB.blue_captured_zones.len < REQUIRED_TRENCH_ZONES))
-			to_chat(H, "<big>WE DO NOT CONTROL THE MIDDLE BUNKER!</big>")
-			return FALSE
+			var/turf/locationtogoto = get_step(H, H.dir) //get the tile in front of the player
+			var/turf/currentlocation = get_turf(H) //get the tile the player is on
+			if(get_area(locationtogoto) == get_area(currentlocation)) //we're stuck behind enemy lines
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") //you should gtfo
+				return TRUE
+			else if(locationtogoto.y >= currentlocation.y) //allow retreating north
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") 
+				return TRUE
+			else
+				to_chat(H, "<big>WE DO NOT CONTROL THE MIDDLE BUNKER!</big>")
+				return FALSE
 	return TRUE
 
 /area/warfare/battlefield/capture_point/red/one
@@ -215,8 +229,17 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 		if(!H.stat == CONSCIOUS)
 			return TRUE
 		if(H.warfare_faction == RED_TEAM && (GLOB.red_captured_zones.len < REQUIRED_TRENCH_ZONES))
-			to_chat(H, "<big>WE DO NOT CONTROL THE MIDDLE BUNKER!</big>")
-			return FALSE
+			var/turf/locationtogoto = get_step(H, H.dir)
+			var/turf/currentlocation = get_turf(H)
+			if(get_area(locationtogoto) == get_area(currentlocation)) //we're stuck behind enemy lines
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") //you should gtfo
+				return TRUE
+			else if(locationtogoto.y <= currentlocation.y) //allow retreating south
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") 
+				return TRUE
+			else
+				to_chat(H, "<big>WE DO NOT CONTROL THE MIDDLE BUNKER!</big>")
+				return FALSE
 	return TRUE
 
 /area/warfare/battlefield/capture_point/blue/one
@@ -289,8 +312,18 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		if(H.warfare_faction == BLUE_TEAM && (GLOB.blue_captured_zones.len < REQUIRED_CAPTURED_ZONES))//No spawn camping till you take the required zones bitch.
-			to_chat(H, "<big>WE DO NOT CONTROL THE TRENCHES!</big>")
-			return FALSE
+			var/turf/locationtogoto = get_step(H, H.dir)
+			var/turf/currentlocation = get_turf(H)
+			//to_chat(H, "<big>DEBUG: [src.y] , [get_area(src)], [currentlocation.y]. [get_area(currentlocation)]</big>")
+			if(get_area(locationtogoto) == get_area(currentlocation)) //we're stuck behind enemy lines
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") //you should gtfo
+				return TRUE
+			else if(locationtogoto.y >= currentlocation.y) //allow retreating north
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") 
+				return TRUE
+			else
+				to_chat(H, "<big>WE DO NOT CONTROL THE TRENCHES!</big>")
+				return FALSE
 	return TRUE
 
 
@@ -320,8 +353,17 @@ GLOBAL_LIST_EMPTY(mortar_areas) // = list()
 		if(!H.stat == CONSCIOUS)
 			return TRUE
 		if(H.warfare_faction == RED_TEAM && (GLOB.red_captured_zones.len < REQUIRED_CAPTURED_ZONES))
-			to_chat(H, "<big>WE DO NOT CONTROL THE TRENCHES!</big>")
-			return FALSE
+			var/turf/locationtogoto = get_step(H, H.dir)
+			var/turf/currentlocation = get_turf(H)
+			if(get_area(locationtogoto) == get_area(currentlocation)) //we're stuck behind enemy lines
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") //you should gtfo
+				return TRUE
+			else if(locationtogoto.y <= currentlocation.y) //allow retreating south
+				to_chat(H, "<big>I AM BEHIND ENEMY LINES, I SHOULD RETREAT BACK TO FRIENDLY LINES!</big>") 
+				return TRUE
+			else
+				to_chat(H, "<big>WE DO NOT CONTROL THE TRENCHES!</big>")
+				return FALSE
 	return TRUE
 
 /area/warfare/farawayhome

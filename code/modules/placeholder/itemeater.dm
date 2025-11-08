@@ -1,6 +1,6 @@
 /obj/structure/warfare_itemeater
 	name = "Hand eater"
-	desc = "Now accepting dogtags, helmets, teeth and souls at a higher price!"
+	desc = "Now accepting dogtags, helmets, medals, teeth and souls at a higher price!"
 	icon = 'icons/obj/warfare.dmi'
 	icon_state = "ie"
 	anchored = TRUE
@@ -67,7 +67,7 @@
 		flick("[icon_state]_o", src)
 		return
 
-	else if(istype(O, /obj/item/clothing/head/helmet/redhelmet/fire) && id == BLUE_TEAM || istype(O, /obj/item/clothing/head/helmet/bluehelmet/fire) && id == RED_TEAM ) // meh
+	else if(istype(O, /obj/item/clothing/mask/gas/red/flamer) && id == BLUE_TEAM || istype(O, /obj/item/clothing/mask/gas/blue/flamer) && id == RED_TEAM ) // meh
 		GLOB.faction_dosh[id] += 250
 		qdel(O)
 		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
@@ -75,14 +75,49 @@
 		return
 
 	else if(istype(O, /obj/item/clothing/head/warfare_officer/redofficer) && id == BLUE_TEAM || istype(O, /obj/item/clothing/head/warfare_officer/blueofficer) && id == RED_TEAM ) // meh
-		GLOB.faction_dosh[id] += 500
+		GLOB.faction_dosh[id] += 250
 		qdel(O)
 		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
 		flick("[icon_state]_o", src)
 		return
-	
+
 	else if(istype(O, /obj/item/melee/classic_baton/factionbanner/red) && id == BLUE_TEAM || istype(O, /obj/item/melee/classic_baton/factionbanner/blue) && id == RED_TEAM ) // JACKPOT!!!
 		GLOB.faction_dosh[id] += 750
+		qdel(O)
+		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
+		flick("[icon_state]_o", src)
+		return
+
+	else if(istype(O, /obj/item/clothing/accessory/medal/red/brass) && id == BLUE_TEAM || istype(O, /obj/item/clothing/accessory/medal/blue/stainless_steel) && id == RED_TEAM )
+		GLOB.faction_dosh[id] += 50
+		qdel(O)
+		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
+		flick("[icon_state]_o", src)
+		return
+
+	else if(istype(O, /obj/item/clothing/accessory/medal/red/pig_iron) && id == BLUE_TEAM || istype(O, /obj/item/clothing/accessory/medal/blue/silver) && id == RED_TEAM )
+		GLOB.faction_dosh[id] += 100
+		qdel(O)
+		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
+		flick("[icon_state]_o", src)
+		return
+
+	else if(istype(O, /obj/item/clothing/accessory/medal/red/gold) && id == BLUE_TEAM || istype(O, /obj/item/clothing/accessory/medal/blue/platinum) && id == RED_TEAM ) // Elite down
+		GLOB.faction_dosh[id] += 150
+		qdel(O)
+		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
+		flick("[icon_state]_o", src)
+		return
+
+	else if(istype(O, /obj/item/clothing/accessory/medal/red/captain/cross1) && id == BLUE_TEAM || istype(O, /obj/item/clothing/accessory/medal/blue/captain/order1) && id == RED_TEAM ) // the head has been cut off
+		GLOB.faction_dosh[id] += 250
+		qdel(O)
+		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
+		flick("[icon_state]_o", src)
+		return
+		
+	else if(istype(O, /obj/item/clothing/head/warfare_officer/redlogi) && id == BLUE_TEAM || istype(O, /obj/item/clothing/head/warfare_officer/bluelogi) && id == RED_TEAM ) // If your cashing this in your team's probably won already(or the enemy logi officer is somewhere they shouldn't be)
+		GLOB.faction_dosh[id] += 200
 		qdel(O)
 		playsound(src, 'sound/effects/thehatchin.ogg', 75, 0.25)
 		flick("[icon_state]_o", src)

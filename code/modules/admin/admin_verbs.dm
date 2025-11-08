@@ -81,6 +81,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/place_squad_waypoint,
 	/client/proc/debug_screentext,
 	/client/proc/send_screentext,
+	/client/proc/toggle_executions,
 	/client/proc/debug_env,
 	/client/proc/clear_squad_waypoint,
 	/client/proc/play_ert_voiceline,
@@ -168,6 +169,8 @@ var/list/admin_verbs_spawn = list(
 	)
 var/list/admin_verbs_server = list(
 	/datum/admins/proc/capture_map_part,
+	/client/proc/force_warfare_end,
+	/client/proc/force_warfare_start,
 	/client/proc/Set_Holiday,
 	/datum/admins/proc/startnow,
 	/datum/admins/proc/restart,
@@ -189,8 +192,6 @@ var/list/admin_verbs_server = list(
 	/client/proc/nanomapgen_DumpImage,
 	/datum/admin/proc/add_hellban,
 	/datum/admin/proc/remove_hellban,
-	/client/proc/speaker_alarm_start,
-	/client/proc/speaker_alarm_stop,
 	/client/proc/nuke_server,
 	/client/proc/set_warf_broadcast_id,
 	/client/proc/set_warf_broadcast_template,
@@ -205,6 +206,7 @@ var/list/admin_verbs_debug = list(
 	/client/proc/ZASSettings,
 	/client/proc/cmd_debug_make_powernets,
 	/client/proc/debug_controller,
+	/client/proc/cargo_password,
 	/client/proc/debug_antagonist_template,
 	/client/proc/cmd_debug_mob_lists,
 	/client/proc/cmd_admin_delete,
@@ -1037,3 +1039,55 @@ var/list/admin_verbs_mentor = list(
 	src.add_language(LANGUAGE_BLUE)
 	src.add_language(LANGUAGE_RED)
 
+//FORCE ROUNDEND
+/client/proc/force_warfare_end()
+	set category = "Server"
+	set name = "Force Warfare End"
+	set desc = "Immediately end the warfare round with stats and reboot"
+
+	if(!check_rights(R_SERVER))
+		return
+
+	var/team_choice = input("Which team should lose?", "Force Round End") as null|anything in list("Red Team", "Blue Team", "Cancel")
+
+	if(!team_choice || team_choice == "Cancel")
+		return
+
+	if(alert("Are you sure you want to force end the round?", "Confirm", "Yes", "No") != "Yes")
+		return
+
+	var/loser = (team_choice == "Red Team") ? RED_TEAM : BLUE_TEAM
+	SSwarfare.end_warfare(loser)
+
+	// Trigger the full round end sequence
+	if(ticker && ticker.mode)
+		ticker.mode.check_finished()
+		ticker.declare_completion()
+
+	log_and_message_admins("force-ended the warfare round with full completion. [team_choice] loses.")
+	feedback_add_details("admin_verb", "FWEND")
+	sound_to(world,'sound/ambience/round_over.ogg')
+
+	// Give players time to see the stats before rebooting
+	spawn(1200)  // 120 seconds delay
+		world.Reboot()
+//FORCE BATTLE START
+/client/proc/force_warfare_start()
+	set category = "Server"
+	set name = "Force Warfare Start"
+	set desc = "Immediately start the warfare battle phase"
+
+	if(!check_rights(R_SERVER))
+		return
+
+	if(SSwarfare.battle_time)
+		to_chat(src, "<span class='warning'>Battle has already started!</span>")
+		return
+
+	if(alert("Are you sure you want to start the battle early?", "Confirm", "Yes", "No") != "Yes")
+		return
+
+	SSwarfare.start_battle()
+
+	log_and_message_admins("force-started the warfare battle phase.")
+	feedback_add_details("admin_verb", "FWSTART")

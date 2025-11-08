@@ -32,7 +32,8 @@
 /obj/item/clothing/suit/armor/sentry/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 4
-
+	slowdown_per_slot[slot_r_hand] = 4
+	slowdown_per_slot[slot_l_hand] = 4
 
 /obj/item/clothing/suit/child_coat
 	name = "child coat"
@@ -1265,12 +1266,12 @@ obj/item/storage/backpack/satchel/warfare/chestrig/blue/oldlmg
 	message_color = "#3466d3"
 
 /obj/item/device/flashlight/lamp/captain
-	desc = "A classic gooseneck desk lamp."
-	icon_state = "caplamp"
-	item_state = "caplamp"
+	desc = "Whooahh... fancyy..."
+	icon_state = "redlamp"
+	item_state = "redlamp"
 	plane = ABOVE_HUMAN_PLANE
 	anchored = TRUE
-	on = FALSE
+	on = TRUE
 	brightness_on = 8
 	light_power = 5
 	power_rang
@@ -1322,37 +1323,45 @@ obj/item/storage/backpack/satchel/warfare/chestrig/blue/oldlmg
 
 // flamer
 
+/obj/item/device/flashlight/lamp/captain/blue
+	icon_state = "bluelamp"
+	light_color = "#a1cae6"
+
 /obj/item/clothing/mask/gas/red/flamer
 	icon_state = "flamer_red"
 	item_state = "flamer_red"
+	name = "Red Flamer Gas Mask"
+	desc = "A special gas mask used to protect your face from your flames."
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	helmet_vision = FALSE
 	worldicons = "sniperworld"
-	canremove = FALSE
+	//canremove = FALSE
 
 /obj/item/clothing/mask/gas/blue/flamer
 	icon_state = "flamer_red"
 	item_state = "flamer_blue"
+	name = "Blue Flamer Gas Mask"
+	desc = "A special gas mask used to protect your face from your flames."
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	helmet_vision = FALSE
 	worldicons = "sniperworld"
-	canremove = FALSE
+	//canremove = FALSE
 
 /obj/item/clothing/gloves/thick/swat/combat/warfare/red/flamer
 	icon_state = "flamer_red"
 	item_state = "flamer_red"
-	canremove = FALSE
+	//canremove = FALSE
 
 /obj/item/clothing/gloves/thick/swat/combat/warfare/blue/flamer
 	icon_state = "flamer_red"
 	item_state = "flamer_red"
-	canremove = FALSE
+	//canremove = FALSE
 
 /obj/item/clothing/shoes/jackboots/warfare/red/flamer
 	item_state = "soldier"
@@ -1441,3 +1450,31 @@ obj/item/storage/backpack/satchel/warfare/chestrig/blue/oldlmg
 /obj/item/clothing/accessory/prac_cloth/blue/bone
 	icon_state = "blueprac_bone"
 	item_state = "blueprac_bone"
+
+// LOGISTICS OFFICER
+
+/obj/item/clothing/head/warfare_officer/redlogi
+	name = "Red Logistic Officer\'s Cap"
+	desc = "GREED."
+	icon_state = "redcaptain"
+	item_state = "redcoat_cf"
+	worldicons = list("captainhatworld1","captainhatworld2")
+	warfare_team = RED_TEAM
+
+/obj/item/clothing/head/warfare_officer/bluelogi
+	name = "Blue Logistic Officer\'s Cap"
+	desc = "GREED."
+	icon_state = "redcaptain"
+	item_state = "bluecoat_cf"
+	worldicons = list("captainhatworld1","captainhatworld2")
+	warfare_team = BLUE_TEAM
+
+/obj/item/clothing/suit/armor/redcoat/logi
+	icon_state = "redcoat_cf"
+	item_state = "redcoat_cf"
+	worldicons = list("captaincoatworld1","captaincoatworld2","captaincoatworld3")
+
+/obj/item/clothing/suit/armor/bluecoat/logi
+	icon_state = "bluecoat_cf"
+	item_state = "bluecoat_cf"
+	worldicons = list("captaincoatworld1","captaincoatworld2","captaincoatworld3")

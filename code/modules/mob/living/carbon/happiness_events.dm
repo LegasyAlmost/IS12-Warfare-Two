@@ -181,13 +181,13 @@
 /datum/happiness_event/banner_deboost
 	description = "<span class='danger'>They're showing their flag off! I can't believe it!</span>\n"
 	happiness = -6 // This only happens around the banner, and if your faction matches it.
-	timeout = 3 SECOND // Yeah, this shouldn't last long outside of the banner's view...
+	timeout = 2 MINUTES // STOP FUCKING SPAMMING
 
 /datum/happiness_event/banner_boost
 	description = "<span class='binfo'>I am proud to fight for my nation! This banner fills me with hope!</span>\n"
 	happiness = 16 // This only happens around the banner, and if your faction matches it.
 	// it can be cancelled out pretty easily so I feel like this amount is just?? /shrug
-	timeout = 1 SECOND // Yeah, this shouldn't last long outside of the banner's radius
+	timeout = 2 MINUTES 
 
 // Addiction Events
 
@@ -247,3 +247,21 @@
 	description = "<span class='danger'>That trench kiss just felt horrible! I can't shake off this feeling, I need to do it RIGHT!</span>\n"
 	happiness = -25
 	timeout = FALSE
+
+//Awarded a medal
+/datum/happiness_event/awarded
+	description = "<span class='binfo'>I have been awarded by the captain! I've done a great job!\n"
+	happiness = 10
+	timeout = 3000
+
+//and taketh away
+/datum/happiness_event/demoted
+	description = "<span class='danger'>I must've done something wrong... My medal has been taken away from me.\n"
+	happiness = -10
+	timeout = 3000
+
+//no step back
+/datum/happiness_event/witnessed_execution
+	description = "<span class='binfo'>THIS IS IT! NO STEP BACK!\n"
+	happiness = 15
+	timeout = 3000

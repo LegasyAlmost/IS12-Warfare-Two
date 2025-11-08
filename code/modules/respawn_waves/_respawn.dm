@@ -38,6 +38,8 @@
 	var/list/carriage_cache = list()
 	static_pixel_y = 15
 
+	anchored = TRUE // u know u r :(
+
 /obj/structure/vehicle/train/proc/generate_carriages()
 	overlays.Cut()
 	if(dir != SOUTH)
@@ -86,6 +88,10 @@
 /obj/structure/vehicle/train/proc/clear_carriage_cache()
 	carriage_cache.Cut()
 
+/obj/structure/vehicle/train/proc/force_regen()
+	carriage_cache.Cut()
+	carriage_amount = rand(2, 6)
+	generate_carriages()
 
 /obj/structure/vehicle/train/proc/get_special_carriage_state()
 	return special_carriage
@@ -150,6 +156,8 @@
 
 /obj/structure/vehicle/train/random/cargo/attack_hand(mob/user)
 	. = ..()
+	if(!do_after(user, rand(10, 50), src, TRUE, same_direction = TRUE, stay_still = TRUE))
+		return
 	var/free = 0
 	if(!user.get_inactive_hand() && !user.get_active_hand())
 		free = TRUE
@@ -263,6 +271,9 @@ SUBSYSTEM_DEF(respawn)
 
 	red_train = locate(/area/train/red) in world
 	blue_train = locate(/area/train/blue) in world
+
+	if(length(GLOB.payloads))
+		time_between_respawns = 1 MINUTE
 
 /datum/controller/subsystem/respawn/proc/handle_team_respawn(var/area/train_area, var/landmark_type, var/team_name)
 	var/list/valid_tp = list()

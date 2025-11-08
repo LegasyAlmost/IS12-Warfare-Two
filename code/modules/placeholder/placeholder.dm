@@ -120,6 +120,18 @@ GLOBAL_LIST_EMPTY(faction_dosh)
 	if(id)
 		GLOB.faction_dosh[id] = 500
 	reconnectpads()
+	setup_sound()
+
+/obj/machinery/kaos/cargo_machine/setup_sound()
+	sound_emitter = new(src, is_static = TRUE, audio_range = 1)
+
+	var/sound/audio = sound('sound/effects/pc_idle.ogg')
+	audio.repeat = TRUE
+	audio.volume = 3
+	sound_emitter.add(audio, "idle")
+
+	sound_emitter.play("idle") // <3
+
 /*
 /obj/machinery/kaos/cargo_machine/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/spacecash))
@@ -179,7 +191,14 @@ GLOBAL_LIST_EMPTY(faction_dosh)
 		qdel(O)
 		playsound(user.loc, 'sound/machines/rpf/audiotapein.ogg', 50, 0.4)
 		return
+
+	else if(istype(O, /obj/item/clothing/accessory/medal/red) && id == BLUE_TEAM || istype(O, /obj/item/clothing/accessory/medal/blue) && id == RED_TEAM )
+		GLOB.faction_dosh[id] += 200
+		qdel(O)
+		playsound(user.loc, 'sound/machines/rpf/audiotapein.ogg', 50, 0.4)
+		return
 */
+
 /obj/machinery/kaos/cargo_machine/attack_hand(mob/living/user as mob) // notice: find a way to sync both versions without having them be duplicates // Done, ignore this notice
 	var/machine_input
 	if(!CanPhysicallyInteract(user))
@@ -221,17 +240,20 @@ GLOBAL_LIST_EMPTY(faction_dosh)
 						playsound(src, "switch_sound", 100, 1)
 						to_chat(user, "\icon[src]Welcome, <span class='warning'>Captain</span>.")
 						playsound(src.loc, 'sound/machines/rpf/consolebeep.ogg', 100, 0.5)
-						var/x = input(user, "Please input the X coordinate.") as num
-						if(x)
+						var/x_input = input(user, "Please input the X coordinate.") as num
+						if(x_input)
 							playsound(src.loc, "sound/machines/rpf/press1.ogg", 100, 0.7)
-							var/y = input(user, "Please input the Y coordinate.") as num
+							var/y_input = input(user, "Please input the Y coordinate.") as num
 							var/costofartillery = 550 // shitty way to go about it. redo this someday.
-							if(y && GLOB.faction_dosh[id] >= costofartillery && CanPhysicallyInteract(user))
-								var/turf/turf_to_drop = locate(x,y,2)
+							if(y_input && GLOB.faction_dosh[id] >= costofartillery && CanPhysicallyInteract(user))
+								var/turf/turf_to_drop = locate(x_input,y_input,2)
 								if(istype(turf_to_drop.loc, /area/warfare/battlefield/no_mans_land) || istype(turf_to_drop.loc, /area/warfare/battlefield/capture_point/mid))
 									playsound(src.loc, "sound/machines/rpf/press1.ogg", 100, 0.7)
-									to_chat(user, "\icon[src]<span class='danger'>ENGAGING ARTILLERY FIRE AT LOCATION: \n\icon[src]X coordinate[x], Y coordinate [y].\n")
+									to_chat(user, "\icon[src]<span class='danger'>ENGAGING ARTILLERY FIRE AT LOCATION: \n\icon[src]X coordinate[x_input], Y coordinate [y_input].\n")
 									to_chat(world, uppertext("<font size=5><b>INCOMING!! NO MAN'S LAND!!</b></font>"))
+									for(var/obj/machinery/light/l in GLOB.lights)
+										if(!prob(7)) continue
+										l.flicker()
 									spawn(1 SECOND)
 										for(var/i = 1, i<3, i++) // it sounds nicer when its delayed.
 											sound_to(world, 'sound/effects/arty_distant.ogg')
@@ -312,7 +334,7 @@ GLOBAL_LIST_EMPTY(faction_dosh)
 									GLOB.faction_dosh[id] -= productprice
 									return
 								*/
-								to_chat(user, "\icon[src]You have been barred from further purchases of reinforcements\n\nPlease consult a technician if you believe this decision was made in error.")
+								to_chat(user, SPAN_YELLOW("\icon[src]You have been barred from further purchases of reinforcements\n\n\icon[src]Please consult a technician if you believe this decision was made in error."))
 								playsound(src.loc, 'sound/machines/rpf/denybeep.ogg', 100, 0.5)
 								return
 							else
@@ -578,6 +600,7 @@ GLOBAL_LIST_EMPTY(faction_dosh)
 GLOBAL_LIST_EMPTY(cargo_pads)
 
 /obj/structure/cargo_pad/New()
+	setup_sound()
 	sleep(50)
 	if(!id || broken)
 		return
@@ -585,6 +608,16 @@ GLOBAL_LIST_EMPTY(cargo_pads)
 		GLOB.cargo_pads[id] = list()
 		var/list/agh = GLOB.cargo_pads[id]
 		agh += src
+
+/obj/structure/cargo_pad/setup_sound()
+	sound_emitter = new(src, is_static = TRUE, audio_range = 1)
+
+	var/sound/audio = sound('sound/effects/cargopad_idle.ogg')
+	audio.repeat = TRUE
+	audio.volume = 1
+	sound_emitter.add(audio, "idle")
+
+	sound_emitter.play("idle") // <3
 
 proc/get_dense_objects_on_turf(turf/T)
 	var/list/dense_objects_on_turf = list()

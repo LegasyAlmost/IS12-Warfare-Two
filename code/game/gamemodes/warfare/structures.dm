@@ -125,6 +125,10 @@
 /obj/structure/dirt_wall/do_climb(var/mob/living/user)
 	if(!can_climb(user))
 		return
+		
+	var/area/warfare/climbto = get_area(get_turf(src)) //prevents climbing into areas you shouldnt
+	if(climbto.Enter(user) == FALSE)
+		return
 
 	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
 	climbers |= user
@@ -227,6 +231,11 @@
 		return
 	if(!SSwarfare.battle_time)
 		return
+	
+	var/area/warfare/climbto = get_area(get_turf(src)) //prevents climbing into areas you shouldnt
+	if(climbto.Enter(user) == FALSE)
+		return
+	
 	user.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
 	climbers |= user
 
@@ -597,9 +606,16 @@
 				stepper = M
 
 /obj/structure/landmine/Uncrossed(var/mob/living/M as mob)
+	var/mob/living/carbon/human/H = M
+	var/obj/item/organ/external/L = H.get_organ(BP_L_LEG)  //leg dismemberments
+	var/obj/item/organ/external/R = H.get_organ(BP_R_LEG)  
 	if(istype(M))
 		if(armed)
 			if(M == stepper) // HAH
+				if(prob(50))
+					L.droplimb(0, pick(DROPLIMB_BLUNT, DROPLIMB_EDGE, DROPLIMB_BURN)) //random chance for different dismemberments
+				if(prob(50))
+					R.droplimb(0, pick(DROPLIMB_BLUNT, DROPLIMB_EDGE, DROPLIMB_BURN))
 				blow()
 
 
@@ -645,7 +661,6 @@
 				to_world(uppertext("<big>[H.warfare_faction] have disarmed the [src]!</big>"))
 				playsound(src, 'sound/effects/mine_arm.ogg', 100, FALSE)
 				sound_to(world, 'sound/effects/ponr_activate.ogg')
-				stop_alarm("[name]_[faction]_PONR_Alarm")
 				last_use = REALTIMEOFDAY
 			else
 				used_by_person = FALSE
@@ -656,7 +671,6 @@
 			used_by_person = TRUE
 			if(do_after(H, 30))
 				in_use = FALSE
-				start_alarm("[name]_[faction]_PONR_Alarm", /datum/speaker_alarm/evil, faction)
 				user.unlock_achievement(new/datum/achievement/point_of_no_return())
 				playsound(src, 'sound/effects/mine_arm.ogg', 100, FALSE)
 				sound_to(world, 'sound/effects/ponr_activate.ogg')
@@ -669,7 +683,6 @@
 			used_by_person = FALSE
 
 /obj/structure/destruction_computer/proc/kaboom()
-	stop_alarm("[name]_[faction]_PONR_Alarm")
 	SSwarfare.end_warfare(faction)//really simple I know.
 
 /obj/structure/destruction_computer/red
@@ -745,7 +758,7 @@
 					fs.particles.position = generator(GEN_BOX, list(-32, -32), list(32, 32), NORMAL_RAND)
 					particleslist |= fs
 
-			//START_PROCESSING(SSprocessing, src)
+			START_PROCESSING(SSprocessing, src)
 			sound_token = sound_player.PlayLoopingSound(src, sound_id, 'sound/ambience/space_loop.ogg', volume = 75, range = 4, falloff = 0.5, prefer_mute = TRUE, ignore_vis = TRUE)
 			overlays += "redbanner"
 			currentfaction = RED_TEAM
@@ -762,7 +775,7 @@
 					fs.particles.gradient = list(0, "cyan", 1, "blue")
 					fs.particles.color = "blue"
 					particleslist |= fs
-			//START_PROCESSING(SSprocessing, src)
+			START_PROCESSING(SSprocessing, src)
 			sound_token = sound_player.PlayLoopingSound(src, sound_id, 'sound/ambience/space_loop.ogg', volume = 75, range = 4, falloff = 0.5, prefer_mute = TRUE, ignore_vis = TRUE)
 			overlays += "bluebanner"
 			currentfaction = BLUE_TEAM
@@ -822,8 +835,8 @@
 						T.color = initial(T.color)
 				for(var/obj/particle_emitter/fire_sparks/fs in particleslist)
 					qdel(fs)
-				//if(is_processing)
-				//	STOP_PROCESSING(SSprocessing, src)
+				if(is_processing)
+					STOP_PROCESSING(SSprocessing, src)
 				return
 			else
 				user.doing_something = FALSE
@@ -834,7 +847,7 @@
 	if(user.warfare_faction == currentfaction)
 		to_chat(user, "<h2>This is your flag! Go [user.warfare_faction]!</h2>")
 
-/*
+
 /obj/structure/factionbanner/Process()
 	if(locate(/obj/effect/effect/smoke, get_turf(src))) // if it got smokebombed, no worky 100%
 		return // whatever shitty way to do it
@@ -845,7 +858,7 @@
 				// if you cant fix it, stuff, make it give some other kind of boost maybe? idk.. like pain tolerance or smth?
 		else
 			H.add_event("banner deboost", /datum/happiness_event/banner_deboost)
-*/
+
 
 /obj/structure/factionbanner/red //sigh
 	name = "Red faction banner"
@@ -890,7 +903,7 @@
 				user.doing_something = FALSE
 				return
 
-/obj/item/melee/classic_baton/factionbanner/red //yes it behaves as normal if someone reports that this is deploying as other color I ain't fixin that 
+/obj/item/melee/classic_baton/factionbanner/red //yes it behaves as normal if someone reports that this is deploying as other color I ain't fixin that
 	name = "Red Flagpole" //well I did end up fixin that anyway loooool
 
 /obj/item/melee/classic_baton/factionbanner/blue
