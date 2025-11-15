@@ -761,6 +761,10 @@
 	if(volume >= 5 && M.is_asystole())
 		remove_self(5)
 		M.resuscitate()
+	if(volume > 0)
+		M.adjustStaminaLoss(-volume) //FIGHT OR FLIGHT
+	if(volume > 10)
+		M.add_chemical_effect(CE_SPEEDBOOST, 1) //holy shit moooove
 
 /datum/reagent/nanoblood
 	name = "Nanoblood"

@@ -134,6 +134,9 @@
 		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return
+	
+/obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
+	src.attack(user, user)
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
 	if(reagents.total_volume > 0)
@@ -194,6 +197,18 @@
 	inject_sound = 'sound/items/syrette_inject.ogg'
 
 /obj/item/reagent_containers/hypospray/autoinjector/morphine/update_icon()
+	if(reagents.total_volume > 0)
+		icon_state = "syrette_closed"
+	else
+		icon_state = "syrette_open"
+		
+/obj/item/reagent_containers/hypospray/autoinjector/adrenaline //for testing with adrenaline
+	name = "adrenaline syrette"
+	icon_state = "syrette_closed"
+	starts_with = list(/datum/reagent/adrenaline = 19)
+	inject_sound = 'sound/items/syrette_inject.ogg'
+	
+/obj/item/reagent_containers/hypospray/autoinjector/adrenaline/update_icon()
 	if(reagents.total_volume > 0)
 		icon_state = "syrette_closed"
 	else

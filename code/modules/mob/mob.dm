@@ -283,6 +283,9 @@
 	set name = "Activate Held Object"
 	set category = "Object"
 	set src = usr
+	
+	if(usr.incapacitated(INCAPACITATION_STUNNED) || usr.incapacitated(INCAPACITATION_KNOCKOUT) || usr.stat || usr.restrained())//!usr.canmove
+		return //If they're stunned, or knocked out, then they can't pick shit up. But if they're just lying down they can.
 
 	if(istype(loc,/obj/mecha)) return
 
@@ -492,7 +495,7 @@
 		src << browse(null, t1)
 
 	if(href_list["flavor_more"])
-		usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
+		usr << browse(text("<HTML><meta charset='UTF-8'><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
 		onclose(usr, "[name]")
 	if(href_list["flavor_change"])
 		update_flavor_text()
@@ -1217,7 +1220,7 @@ mob/proc/yank_out_object()
 	set name = "body-l-leg"
 	set hidden = 1
 	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
-	
+
 /client/verb/body_throat()
 	set name = "body-throat"
 	set hidden = 1
