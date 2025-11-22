@@ -126,11 +126,11 @@
 	if(assailant.get_active_hand())
 		to_chat(assailant, "<span class='notice'>You can't grab someone if your hand is full.</span>")
 		return 0
-
+	/*
 	if(assailant.grabbed_by.len)
 		to_chat(assailant, "<span class='notice'>You can't grab someone if you're being grabbed.</span>")
 		return 0
-
+	*/
 	return 1
 
 /obj/item/grab/proc/init()
@@ -210,6 +210,12 @@
 
 /obj/item/grab/proc/reset_position()
 	current_grab.reset_position(src)
+	
+/obj/item/grab/proc/force_them_up() //for human shielding
+	current_grab.force_stand = 1
+	
+/obj/item/grab/proc/get_back_down() //for human shielding
+	current_grab.force_stand = 0
 
 /*
 	This section is for the simple procs used to return things from current_grab.
